@@ -20,7 +20,7 @@ function App() {
     }
     state.forEach((el) => {
         // @ts-ignore
-        obj[el.status].push(<div onDragStart={(e)=> handleDragStart(e, el.name)} draggable className={display?'item hide':'item'}>{el.name}</div>);
+        obj[el.status].push(<div onDragEnd={(e)=>handleDragEnd(e)} onDragStart={(e)=> handleDragStart(e, el.name)} draggable className={display?'item hide':'item'}>{el.name}</div>);
     })
     const handleDragStart = (e:React.DragEvent<HTMLDivElement>, name:string) => {
         setTimeout(()=>{
@@ -32,6 +32,9 @@ function App() {
     }
     const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
+    }
+    const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+        setDisplay(false)
     }
     const handleOnDrop = (e:React.DragEvent<HTMLDivElement>, status:string) => {
         let id = e.dataTransfer.getData('id')
