@@ -35,6 +35,8 @@ function App() {
     }
     const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
         setDisplay(false)
+        // @ts-ignore
+        e.target.style.background = ''
     }
     const handleOnDrop = (e:React.DragEvent<HTMLDivElement>, status:string) => {
         let id = e.dataTransfer.getData('id')
