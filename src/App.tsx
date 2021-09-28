@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 
+
 type stateType = {
     name: string;
     status: string;
